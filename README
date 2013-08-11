@@ -1,0 +1,16 @@
+Check whether PM in 'sent' folder is read by recipient.
+Parameters (use one of them):
+message_id - ID of private messsage (provided by Friends module as {friends_message_id})
+copy_id - ID of PM copy in 'sent' folder (provided by Messaging module as {message_id})
+
+Returns tagdata if message is read, and no results if it's not read yet.
+
+{exp:messaging:private_messages folder="sent"}
+{exp:is_message_read:check copy_id="{message_id}"}
+{if no_results}
+&lt;div class="unread"&gt;
+{/if}
+&lt;div class="read"&gt;
+{/exp:is_message_read:check}
+{subject}&lt;/div&gt;
+{/exp:messaging:private_messages}
